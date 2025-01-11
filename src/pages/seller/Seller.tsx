@@ -18,7 +18,7 @@ const Seller: React.FC = () => {
         .then(res => res),
   });
 
-  const handlePageChange = (event: unknown, newPage: number) => {
+  const handlePageChange = (_: unknown, newPage: number) => {
     setPage(newPage);
   };
 

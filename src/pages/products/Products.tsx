@@ -19,7 +19,7 @@ import {Box,Button,Typography,Table as MuiTable,TableBody,TableCell,TableHead,Ta
     });
     console.log(data);
     
-    const handlePageChange = (event: unknown, newPage: number) => {
+    const handlePageChange = (_: unknown, newPage: number) => {
       setPage(newPage);
     };
   
