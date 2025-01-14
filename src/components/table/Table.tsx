@@ -9,7 +9,7 @@ import Paper from "@mui/material/Paper";
 import { ICustomer } from "@/types";
 import PushPinIcon from "@mui/icons-material/PushPin";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import PriceCheckIcon from '@mui/icons-material/PriceCheck';
 import { Button, Modal, Box, Typography, TextField } from "@mui/material";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -93,7 +93,8 @@ const BasicTable: React.FC<{ data: ICustomer[], type: string }> = ({ data, type 
             <TableCell align="left">Phone</TableCell>
             <TableCell align="left">Budget</TableCell>
             <TableCell align="left">Address</TableCell>
-            <TableCell align="center">Actions</TableCell>
+            <TableCell align="left"></TableCell>
+            <TableCell align="left">Actions</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -104,16 +105,18 @@ const BasicTable: React.FC<{ data: ICustomer[], type: string }> = ({ data, type 
             >
               <TableCell component="th" scope="row">
                 {row.pin && <PushPinIcon className="rotate-45" fontSize="small" />}
-                {row.isPaidToday && isToday(row.isPaidToday) && (
-                  <CheckCircleIcon color="success" fontSize="small" />
-                )}
                 {row.fname}
               </TableCell>
               <TableCell align="left">{row.lname}</TableCell>
               <TableCell align="left">{row.phone_primary}</TableCell>
               <TableCell align="left">{row.budget}</TableCell>
               <TableCell align="left">{row.address}</TableCell>
-              <TableCell align="center">
+              <TableCell align="left">
+                {row.isPaidToday && isToday(row.isPaidToday) && (
+                  <PriceCheckIcon color="success" fontSize="large" />
+                )}
+              </TableCell>
+              <TableCell align="left">
                 <Button sx={{ color: "#333" }} onClick={(event) => handleClick(event, row._id)}>
                   <MoreHorizIcon />
                 </Button>
