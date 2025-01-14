@@ -5,6 +5,8 @@ export interface ICustomer{
     phone_primary: string;
     budget: number;
     address: string;
+    pin: boolean;
+    isPaidToday: string;
 }
 export interface Product {
     _id: number;

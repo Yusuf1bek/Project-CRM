@@ -11,7 +11,7 @@ const Customer: React.FC = () => {
   const [rowsPerPage, setRowsPerPage] = useState(10); 
 
   const { data, isLoading } = useQuery({
-    queryKey: [`customers`, page, rowsPerPage],
+    queryKey: [`customer`, page, rowsPerPage],
     queryFn: () =>
       request
         .get(`/get/customers?skip=${page}&limit=${rowsPerPage}`)
@@ -43,7 +43,7 @@ const Customer: React.FC = () => {
         </Box>
       ) : (
         <>
-          <Table data={data?.data?.innerData} />
+          <Table data={data?.data?.innerData} type="customer"/>
           <TablePagination
             component="div"
             count={data?.data?.totalCount || 0}
